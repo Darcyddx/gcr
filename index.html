@@ -186,54 +186,6 @@
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <main id="main-content">
   <section class="hero">
     <div class="hero-body">
@@ -271,9 +223,9 @@
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
+                         <!-- TODO: Update with your paper ID -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        <a href="https://neurips.cc/virtual/2025/poster/119667" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -282,14 +234,14 @@
                       </a>
                     </span>
 
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
+                    <!-- TODO: Add your slides or remove this section -->
                     <span class="link-block">
                       <a href="static/pdfs/supplementary_material.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
                       </span>
-                      <span>Supplementary</span>
+                      <span>Slides</span>
                     </a>
                   </span>
 
@@ -323,23 +275,20 @@
 </section>
 
 
-<!-- Teaser video-->
+<!-- Teaser image-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
+      <!-- TODO: Replace with your teaser image -->
+      <img src="static/images/teaser.png" alt="Teaser image showing main research concept" style="width: 100%; height: auto; max-height: 500px; object-fit: contain;" loading="lazy"/>
+      <!-- TODO: Replace with your image description -->
       <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+        Feature map visualizations from models trained on <em>identical data batches</em>: (top) baseline and (bottom) our GCL-augmented model. Brighter red regions indicate stronger feature activations. Compared to the baseline, GCL-enhanced maps more clearly emphasize class-discriminative cues, e.g., cat faces, ears, and eyes, and for dogs, tongues, noses, and facial contours, reflecting improved focus and interpretability. GCL also yields higher classification accuracy (98.1% → 99.8%).
       </h2>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
+<!-- End teaser image -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -350,7 +299,7 @@
         <div class="content has-text-justified">
           <!-- TODO: Replace with your paper abstract -->
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            We propose Graph Consistency Regularization (GCR), a novel framework that injects relational graph structures, derived from model predictions, into the learning process to promote class-aware, semantically meaningful feature representations. Functioning as a form of <em>self-prompting</em>, GCR enables the model to refine its internal structure using its own outputs. While deep networks learn rich representations, these often capture noisy inter-class similarities that contradict the model's predicted semantics. GCR addresses this issue by introducing parameter-free <em>Graph Consistency Layers</em> (GCLs) at arbitrary depths. Each GCL builds a batch-level feature similarity graph and aligns it with a global, class-aware masked prediction graph, derived by modulating softmax prediction similarities with intra-class indicators. This alignment enforces that feature-level relationships reflect class-consistent prediction behavior, acting as a <em>semantic regularizer</em> throughout the network. Unlike prior work, GCR introduces a multi-layer, cross-space graph alignment mechanism with adaptive weighting, where layer importance is learned from graph discrepancy magnitudes. This allows the model to prioritize semantically reliable layers and suppress noisy ones, enhancing feature quality without modifying the architecture or training procedure. GCR is model-agnostic, lightweight, and improves semantic structure across various networks and datasets. Experiments show that GCR promotes cleaner feature structure, stronger intra-class cohesion, and improved generalization, offering a new perspective on learning from prediction structure.
           </p>
         </div>
       </div>
@@ -359,39 +308,78 @@
 </section>
 <!-- End paper abstract -->
 
+<!-- Graph Pipeline Section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Framework Overview</h2>
+          <div class="pipeline-container">
+            <img src="static/images/graph_pipeline.png" 
+                 alt="Graph Consistency Regularization (GCR) Framework Pipeline" 
+                 style="width: 100%; height: auto; max-height: 600px; object-fit: contain;" 
+                 loading="lazy"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Graph Pipeline Section -->
+
+<!-- Feature Clustering Visualization Section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">t-SNE Visualization</h2>
+          <div class="clustering-container">
+            <img src="static/images/vis4.png" 
+                 alt="GCL-augmented ShuffleNet feature clustering visualization" 
+                 style="width: 100%; height: auto; max-height: 600px; object-fit: contain;" 
+                 loading="lazy"/>
+            <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+              GCL-augmented ShuffleNet yields more compact intra-class clusters and better inter-class separation compared to the baseline model, demonstrating improved semantic feature organization.
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End t-SNE Visualization Section -->
 
 <!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
+      <div class="columns is-centered has-text-centered">
+  <div class="column">
+    <h2 class="title is-3">Relational Graph Visualizations</h2>
+  </div>
+</div>
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/vis1.png" alt="Second research result visualization" loading="lazy"/>
         <h2 class="subtitle has-text-centered">
-          First image description.
+          Relational graph visualization on CIFAR-10 dataset
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
+        <img src="static/images/vis2.png" alt="Third research result visualization" loading="lazy"/>
         <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
+         Relational graph Comparison across five models on the same batch on CIFAR-10 dataset
        </h2>
      </div>
      <div class="item">
       <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
+      <img src="static/images/vis3.png" alt="Fourth research result visualization" loading="lazy"/>
       <h2 class="subtitle has-text-centered">
-        Fourth image description.
+        Relational graph visualization on Kaggle Cats VS Dogs
       </h2>
     </div>
   </div>
@@ -400,8 +388,25 @@
 </section>
 <!-- End image carousel -->
 
+<!-- Youtube video -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
 
+      <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="publication-video">
 
+            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End youtube video -->
 
 <!-- Youtube video -->
 <section class="hero is-small is-light">
@@ -413,8 +418,25 @@
         <div class="column is-four-fifths">
           
           <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!-- Placeholder for video -->
+            <div style="
+              width: 100%; 
+              height: 315px; 
+              background-color: #f5f5f5; 
+              border: 2px dashed #dbdbdb; 
+              display: flex; 
+              align-items: center; 
+              justify-content: center; 
+              border-radius: 8px;
+              color: #7a7a7a;
+              font-size: 1.2rem;
+            ">
+              <div style="text-align: center;">
+                <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
+                <p><strong>Video Coming Soon</strong></p>
+                <p style="font-size: 1rem; margin-top: 0.5rem;">Presentation video will be available shortly</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -423,45 +445,6 @@
 </section>
 <!-- End youtube video -->
 
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
 <!-- Paper poster -->
 <section class="hero is-small is-light">
   <div class="hero-body">
@@ -469,7 +452,7 @@
       <h2 class="title">Poster</h2>
 
       <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+      <iframe  src="static/pdfs/graph_poster.pdf" width="100%" height="550">
           </iframe>
         
       </div>
@@ -489,12 +472,11 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+      <pre id="bibtex-code"><code>@article{ding2025graph,
+  title={Graph Your Own Prompt},
+  author={Ding, Xi and Wang, Lei and Koniusz, Piotr and Gao, Yongsheng},
+  journal={Advances in Neural Information Processing Systems},
+  year={2025}
 }</code></pre>
     </div>
 </section>
